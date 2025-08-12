@@ -1,0 +1,18 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "copy-bin-only",
+      "type": "shell",
+      "command": ".vscode\\copy_bin.bat",
+      "group": "none",
+      "problemMatcher": []
+    },
+    {
+      "label": "build+copy",
+      "dependsOn": ["arduino: build", "copy-bin-only"],
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}

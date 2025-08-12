@@ -1,39 +1,92 @@
 #include <Arduino.h>
-#include <DS1302.h> // Бібліотека з https://www.rinkydinkelectronics.com/library.php?id=73
+#include <ESP8266WiFi.h>
+#include <ThreeWire.h>
+#include <RtcDS1302.h>
+#include <time.h>
 
-// Піни підключення DS1302
-#define DS1302_CLK 14 // GPIO14 = D5 (SCK)
-#define DS1302_DAT 12 // GPIO12 = D6 (MISO)
-#define DS1302_RST 13 // GPIO13 = D7 (MOSI)
+// ==== Налаштування WiFi (масиви char) ====
+char ssid[] = "MyWiFi";      // логін WiFi
+char password[] = "MyPass";  // пароль WiFi
 
-// Створюємо об'єкт годинника
-DS1302 rtc(DS1302_RST, DS1302_DAT, DS1302_CLK);
+// ==== Піни DS1302 ====
+#define PIN_CLK 14  // D5
+#define PIN_DAT 12  // D6
+#define PIN_RST 13  // D7
 
-void setup()
-{
-    Serial.begin(115200);
+ThreeWire myWire(PIN_DAT, PIN_CLK, PIN_RST);
+RtcDS1302<ThreeWire> Rtc(myWire);
 
-    // Ініціалізація DS1302
-    rtc.halt(false);         // Запустити годинник (якщо був зупинений)
-    rtc.writeProtect(false); // Вимкнути захист від запису
+// ==== NTP налаштування ====
+const char* ntpServer = "pool.ntp.org";
+const long gmtOffset_sec = 2 * 3600;  // GMT+2
+const int daylightOffset_sec = 0;     // літній час (0 якщо не потрібно)
 
-    // Один раз встановлюємо час (потім можна закоментувати)
-    // Формат: рік, місяць, день, год, хв, сек, деньТижня (1=Пн ... 7=Нд)
-    rtc.setDOW(TUESDAY);      // День тижня
-    rtc.setTime(14, 30, 0);   // Години, хвилини, секунди
-    rtc.setDate(12, 8, 2025); // День, місяць, рік
+// ==== Підключення до WiFi ====
+void connectWiFi() {
+  Serial.print("Підключення до WiFi: ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
 
-    Serial.println("DS1302 готовий!");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\n✅ Підключено до WiFi");
 }
 
-void loop()
-{
-    // Виводимо дату та час кожну секунду
-    Serial.print(rtc.getDOWStr()); // День тижня
-    Serial.print(" ");
-    Serial.print(rtc.getDateStr()); // Дата
-    Serial.print(" -- ");
-    Serial.println(rtc.getTimeStr()); // Час
+// ==== Отримання часу з NTP і запис в DS1302 ====
+void syncTimeFromNTP() {
+  configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
 
-    delay(1000);
+  Serial.println("⌛ Отримання часу з NTP...");
+  struct tm timeinfo;
+  if (!getLocalTime(&timeinfo)) {
+    Serial.println("❌ Помилка отримання часу");
+    return;
+  }
+
+  Serial.println("✅ Час отримано з інтернету");
+  Serial.printf("%02d/%02d/%04d %02d:%02d:%02d\n",
+                timeinfo.tm_mday,
+                timeinfo.tm_mon + 1,
+                timeinfo.tm_year + 1900,
+                timeinfo.tm_hour,
+                timeinfo.tm_min,
+                timeinfo.tm_sec);
+
+  // Запис в DS1302
+  RtcDateTime newTime(
+    timeinfo.tm_year + 1900,
+    timeinfo.tm_mon + 1,
+    timeinfo.tm_mday,
+    timeinfo.tm_hour,
+    timeinfo.tm_min,
+    timeinfo.tm_sec
+  );
+  Rtc.SetDateTime(newTime);
+}
+
+void setup() {
+  Serial.begin(115200);
+  delay(2000);
+
+  Rtc.Begin();
+  Rtc.SetIsWriteProtected(false);
+  Rtc.SetIsRunning(true);
+
+  connectWiFi();
+  syncTimeFromNTP();
+}
+
+void loop() {
+  // Читання часу з DS1302
+  RtcDateTime now = Rtc.GetDateTime();
+  char buffer[20];
+  snprintf_P(buffer, sizeof(buffer), PSTR("%02u/%02u/%04u %02u:%02u:%02u"),
+             now.Day(), now.Month(), now.Year(),
+             now.Hour(), now.Minute(), now.Second());
+
+  Serial.println(buffer);
+
+  delay(1000);
 }

@@ -1,7 +1,7 @@
-D:\Max\WEMOS\Hi-Tech-Clock\Wemos\ D1\ mini\build\core\Updater.cpp.o: \
+d:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\core\Updater.cpp.o: \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266\Updater.cpp \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266\CommonHFile.h \
- D:\Max\WEMOS\Hi-Tech-Clock\Wemos\ D1\ mini\build\core\Wemos\ D1\ mini.ino.globals.h \
+ d:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\core\Wemos_D1_mini.ino.globals.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266/Arduino.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266/umm_malloc/umm_malloc_cfgport.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266/stdlib_noniso.h \
@@ -54,7 +54,7 @@ D:\Max\WEMOS\Hi-Tech-Clock\Wemos\ D1\ mini\build\core\Updater.cpp.o: \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266\eboot_command.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266/esp8266_peri.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266\StackThunk.h \
- D:\Max\WEMOS\Hi-Tech-Clock\Wemos\ D1\ mini\build/core/Updater_Signing.h \
+ d:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build/core/Updater_Signing.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2/tools/sdk/include/user_interface.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2/tools/sdk/include/os_type.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2/tools/sdk/include/ets_sys.h \

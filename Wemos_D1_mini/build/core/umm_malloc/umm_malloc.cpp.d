@@ -1,7 +1,7 @@
-D:\Max\WEMOS\Hi-Tech-Clock\Wemos\ D1\ mini\build\core\umm_malloc\umm_malloc.cpp.o: \
+d:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\core\umm_malloc\umm_malloc.cpp.o: \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266\umm_malloc\umm_malloc.cpp \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266\CommonHFile.h \
- D:\Max\WEMOS\Hi-Tech-Clock\Wemos\ D1\ mini\build\core\Wemos\ D1\ mini.ino.globals.h \
+ d:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\core\Wemos_D1_mini.ino.globals.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266\umm_malloc\Notes.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266\umm_malloc\umm_malloc_cfg.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266\umm_malloc\umm_malloc_cfgport.h \
