@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Приватний тестовий сайт</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Збереження даних користувача</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="login">
-    <h2>Вхід</h2>
-    <input type="password" id="password" placeholder="Введіть пароль">
-    <button onclick="checkPassword()">Увійти</button>
-    <p id="error"></p>
+  <div id="form-container">
+    <h2>Введіть дані</h2>
+    <input type="text" id="username" placeholder="Ім'я користувача">
+    <input type="password" id="password" placeholder="Пароль">
+    <button onclick="saveData()">Зберегти</button>
+    <p id="status"></p>
   </div>
 
-  <div id="content" style="display:none;">
-    <h1>Привіт, це приватна сторінка! 🔒</h1>
-    <p>Тут можна тестувати JavaScript, HTML, CSS.</p>
+  <div id="show-data" style="display:none;">
+    <h2>Збережені дані:</h2>
+    <p><strong>Ім'я:</strong> <span id="saved-username"></span></p>
+    <p><strong>Пароль:</strong> <span id="saved-password"></span></p>
+    <button onclick="clearData()">Очистити дані</button>
   </div>
 
   <script src="script.js"></script>
