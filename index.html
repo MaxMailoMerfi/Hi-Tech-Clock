@@ -3,16 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Мій перший сайт</title>
+  <title>Приватний тестовий сайт</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Привіт, світ! 👋</h1>
-    <p>Це мій перший сайт, розміщений на <strong>GitHub Pages</strong>.</p>
+  <div id="login">
+    <h2>Вхід</h2>
+    <input type="password" id="password" placeholder="Введіть пароль">
+    <button onclick="checkPassword()">Увійти</button>
+    <p id="error"></p>
+  </div>
 
-    <button onclick="sayHello()">Натисни мене</button>
-    <p id="output"></p>
+  <div id="content" style="display:none;">
+    <h1>Привіт, це приватна сторінка! 🔒</h1>
+    <p>Тут можна тестувати JavaScript, HTML, CSS.</p>
   </div>
 
   <script src="script.js"></script>
