@@ -1,0 +1,19 @@
+#line 1 "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\.vscode\\tasks.json"
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "copy-bin-only",
+      "type": "shell",
+      "command": ".vscode\\copy_bin.bat",
+      "group": "none",
+      "problemMatcher": []
+    },
+    {
+      "label": "build+copy",
+      "dependsOn": ["arduino: build", "copy-bin-only"],
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}
