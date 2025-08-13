@@ -7,13 +7,7 @@
   "files.associations": {
     "*.ino": "cpp"
   },
-    "files.exclude": {
-        "build": true
-    },
-    "search.exclude": {
-        "build": true
-    },
     "git.ignoredRepositories": [
-        "**/build"
+        "D:/Max/WEMOS/Hi-Tech-Clock/Wemos_D1_mini/build"
     ]
 }
