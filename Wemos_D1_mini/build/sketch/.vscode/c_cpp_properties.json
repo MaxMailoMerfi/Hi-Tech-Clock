@@ -22,11 +22,11 @@
         "-U__STRICT_ANSI__",
         "-D_GNU_SOURCE",
         "-DESP8266",
-        "@d:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build/core/build.opt",
+        "@D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build/core/build.opt",
         "-IC:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2/tools/sdk/include",
         "-IC:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2/tools/sdk/lwip2/include",
         "-IC:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2/tools/sdk/libc/xtensa-lx106-elf/include",
-        "-Id:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build/core",
+        "-ID:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build/core",
         "-c",
         "@C:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2/tools/warnings/none-cppflags",
         "-Os",
@@ -61,9 +61,9 @@
         "-IC:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\variants\\d1_mini",
         "-IC:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\libraries\\ESP8266WiFi\\src",
         "-IC:\\Users\\Max\\Documents\\Arduino\\libraries\\Rtc_by_Makuna\\src",
-        "d:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build\\sketch\\Wemos_D1_mini.ino.cpp",
+        "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build\\sketch\\Wemos_D1_mini.ino.cpp",
         "-o",
-        "d:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build\\sketch\\Wemos_D1_mini.ino.cpp.o"
+        "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build\\sketch\\Wemos_D1_mini.ino.cpp.o"
       ],
       "defines": [
         "__ets__",
