@@ -1,5 +1,5 @@
 {
-  "additionalFiles": "..\\..\\..",
+  "additionalFiles": "..\\..\\..,..\\..\\..,..\\..\\..,..\\..\\..",
   "compiler.optimization_flags": "",
   "customBuildProperties": "build.warn_data_percentage=75",
   "fqbn": "esp8266:esp8266:d1_mini:baud=115200,xtal=80,eesz=4M2M,dbg=Disabled,lvl=None____,ip=lm2f,vt=flash,exception=disabled,stacksmash=disabled,wipe=none,ssl=all,mmu=3232,non32xfer=fast",
