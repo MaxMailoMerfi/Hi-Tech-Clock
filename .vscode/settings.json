@@ -1,0 +1,8 @@
+{
+    "files.watcherExclude": {
+        "**/Wemos_D1_mini/build/**": true
+    },
+    "search.exclude": {
+        "**/Wemos_D1_mini/build/**": true
+    }
+}
