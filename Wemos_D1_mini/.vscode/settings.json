@@ -8,9 +8,9 @@
     "*.ino": "cpp"
   },
   "files.watcherExclude": {
-    "**/build/**": true
+      "**/Wemos_D1_mini/build/**": true
   },
   "search.exclude": {
-      "**/build/**": true
+      "**/Wemos_D1_mini/build/**": true
   }
 }
