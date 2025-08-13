@@ -1,2 +1,1 @@
-git rm -r --cached Wemos_D1_mini/build
-git commit -m "Stop tracking Wemos_D1_mini/build"
+Wemos_D1_mini/build/

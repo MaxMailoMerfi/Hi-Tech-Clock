@@ -7,10 +7,13 @@
   "files.associations": {
     "*.ino": "cpp"
   },
-    "files.watcherExclude": {
-        "**/build/**": true
+    "files.exclude": {
+        "build": true
     },
     "search.exclude": {
-        "**/build/**": true
-    }
+        "build": true
+    },
+    "git.ignoredRepositories": [
+        "**/build"
+    ]
 }
