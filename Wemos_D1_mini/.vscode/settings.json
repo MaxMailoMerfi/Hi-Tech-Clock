@@ -12,5 +12,7 @@
   },
   "search.exclude": {
       "**/build/**": true
-  }
+  },
+  "git.ignoredRepositories": [],
+  "git.ignoreLimitWarning": true
 }
