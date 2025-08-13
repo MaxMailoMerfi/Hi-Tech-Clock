@@ -19,21 +19,47 @@ RtcDS1302<ThreeWire> Rtc(myWire);
 
 // ==== NTP налаштування ====
 const char *ntpServer = "pool.ntp.org";
-const long gmtOffset_sec = 2 * 3600; // GMT+2
-const int daylightOffset_sec = 1;    // літній час (0 якщо не потрібно)
-             const long gmtOffset_sec = 3 * 3600; // GMT+2
-const int daylightOffset_sec = 0;                 // літній час (0 якщо не потрібно)
+const long baseGmtOffset_sec = 2 * 3600; // GMT+2 для України
+
+// ==== Обчислення літнього часу ====
+#line 24 "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\Wemos_D1_mini.ino"
+int getDaylightOffset(const struct tm *timeinfo);
+#line 51 "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\Wemos_D1_mini.ino"
+void connectWiFi();
+#line 66 "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\Wemos_D1_mini.ino"
+void syncTimeFromNTP();
+#line 107 "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\Wemos_D1_mini.ino"
+void setup();
+#line 120 "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\Wemos_D1_mini.ino"
+void loop();
+#line 24 "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\Wemos_D1_mini.ino"
+int getDaylightOffset(const struct tm *timeinfo)
+{
+  int month = timeinfo->tm_mon + 1;
+  int wday = timeinfo->tm_wday; // 0=Нд, 1=Пн...
+  int mday = timeinfo->tm_mday;
+
+  if (month < 3 || month > 10)
+    return 0; // Січень-Лютий, Листопад-Грудень — зимовий
+  if (month > 3 && month < 10)
+    return 3600; // Квітень-Вересень — літній
+
+  // Березень — перевіряємо останню неділю
+  if (month == 3)
+  {
+    int lastSunday = 31 - ((wday + 31 - mday) % 7);
+    return (mday >= lastSunday) ? 3600 : 0;
+  }
+  // Жовтень — перевіряємо останню неділю
+  if (month == 10)
+  {
+    int lastSunday = 31 - ((wday + 31 - mday) % 7);
+    return (mday < lastSunday) ? 3600 : 0;
+  }
+  return 0;
+}
 
 // ==== Підключення до WiFi ====
-#line 27 "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\Wemos_D1_mini.ino"
-void connectWiFi();
-#line 42 "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\Wemos_D1_mini.ino"
-void syncTimeFromNTP();
-#line 74 "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\Wemos_D1_mini.ino"
-void setup();
-#line 88 "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\Wemos_D1_mini.ino"
-void loop();
-#line 27 "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\Wemos_D1_mini.ino"
 void connectWiFi()
 {
   Serial.print("Підключення до WiFi: ");
@@ -51,7 +77,8 @@ void connectWiFi()
 // ==== Отримання часу з NTP і запис в DS1302 ====
 void syncTimeFromNTP()
 {
-  configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
+  // Отримуємо UTC
+  configTime(0, 0, ntpServer);
 
   Serial.println("⌛ Отримання часу з NTP...");
   struct tm timeinfo;
@@ -61,14 +88,22 @@ void syncTimeFromNTP()
     return;
   }
 
+  // Розраховуємо літній час
+  int daylightOffset_sec = getDaylightOffset(&timeinfo);
+
+  // Повторне налаштування часу з урахуванням зсувів
+  configTime(baseGmtOffset_sec, daylightOffset_sec, ntpServer);
+  getLocalTime(&timeinfo);
+
   Serial.println("✅ Час отримано з інтернету");
-  Serial.printf("%02d/%02d/%04d %02d:%02d:%02d\n",
+  Serial.printf("%02d/%02d/%04d %02d:%02d:%02d (DST=%d)\n",
                 timeinfo.tm_mday,
                 timeinfo.tm_mon + 1,
                 timeinfo.tm_year + 1900,
                 timeinfo.tm_hour,
                 timeinfo.tm_min,
-                timeinfo.tm_sec);
+                timeinfo.tm_sec,
+                daylightOffset_sec ? 1 : 0);
 
   // Запис в DS1302
   RtcDateTime newTime(
@@ -91,7 +126,6 @@ void setup()
   Rtc.SetIsRunning(true);
 
   connectWiFi();
-  delay(200);
   syncTimeFromNTP();
 }
 
@@ -108,3 +142,4 @@ void loop()
 
   delay(1000);
 }
+
