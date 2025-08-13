@@ -1,7 +1,7 @@
-d:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\libraries\ESP8266WiFi\BearSSLHelpers.cpp.o: \
+D:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\libraries\ESP8266WiFi\BearSSLHelpers.cpp.o: \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\libraries\ESP8266WiFi\src\BearSSLHelpers.cpp \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266\CommonHFile.h \
- d:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\core\Wemos_D1_mini.ino.globals.h \
+ D:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\core\Wemos_D1_mini.ino.globals.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\libraries\ESP8266WiFi\src\BearSSLHelpers.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2/tools/sdk/include/bearssl/bearssl.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2/tools/sdk/include/bearssl/bearssl_hash.h \
@@ -66,4 +66,4 @@ d:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\libraries\ESP8266WiFi\BearSSLHelp
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266/WString.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266/Stream.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266/md5.h \
- d:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build/core/Updater_Signing.h
+ D:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build/core/Updater_Signing.h

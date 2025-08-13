@@ -10,17 +10,17 @@
     "Includepath": "C:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\variants\\d1_mini"
   },
   {
-    "Sourcefile": "d:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build\\sketch\\Wemos_D1_mini.ino.cpp",
+    "Sourcefile": "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build\\sketch\\Wemos_D1_mini.ino.cpp",
     "Include": "ESP8266WiFi.h",
     "Includepath": "C:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\libraries\\ESP8266WiFi\\src"
   },
   {
-    "Sourcefile": "d:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build\\sketch\\Wemos_D1_mini.ino.cpp",
+    "Sourcefile": "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build\\sketch\\Wemos_D1_mini.ino.cpp",
     "Include": "ThreeWire.h",
     "Includepath": "C:\\Users\\Max\\Documents\\Arduino\\libraries\\Rtc_by_Makuna\\src"
   },
   {
-    "Sourcefile": "d:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build\\sketch\\Wemos_D1_mini.ino.cpp",
+    "Sourcefile": "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build\\sketch\\Wemos_D1_mini.ino.cpp",
     "Include": "",
     "Includepath": null
   },

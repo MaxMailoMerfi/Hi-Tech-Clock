@@ -6,5 +6,13 @@
   "C_Cpp.default.configurationProvider": "ms-vscode.cpptools",
   "files.associations": {
     "*.ino": "cpp"
-  }
+  },
+    "files.watcherExclude": {
+        "**/build/**": true
+    },
+    "search.exclude": {
+        "**/build/**": true
+    },
+    "git.ignoredRepositories": [],
+    "git.ignoreLimitWarning": true
 }

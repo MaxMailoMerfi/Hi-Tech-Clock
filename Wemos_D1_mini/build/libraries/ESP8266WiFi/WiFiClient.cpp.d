@@ -1,7 +1,7 @@
-d:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\libraries\ESP8266WiFi\WiFiClient.cpp.o: \
+D:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\libraries\ESP8266WiFi\WiFiClient.cpp.o: \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\libraries\ESP8266WiFi\src\WiFiClient.cpp \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266\CommonHFile.h \
- d:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\core\Wemos_D1_mini.ino.globals.h \
+ D:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\core\Wemos_D1_mini.ino.globals.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266/wl_definitions.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2/tools/sdk/lwip2/include/lwip/init.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2/tools/sdk/lwip2/include/lwip/opt.h \

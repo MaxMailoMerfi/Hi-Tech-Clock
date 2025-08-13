@@ -1,7 +1,7 @@
-d:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\libraries\ESP8266WiFi\CertStoreBearSSL.cpp.o: \
+D:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\libraries\ESP8266WiFi\CertStoreBearSSL.cpp.o: \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\libraries\ESP8266WiFi\src\CertStoreBearSSL.cpp \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266\CommonHFile.h \
- d:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\core\Wemos_D1_mini.ino.globals.h \
+ D:\Max\WEMOS\Hi-Tech-Clock\Wemos_D1_mini\build\core\Wemos_D1_mini.ino.globals.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\libraries\ESP8266WiFi\src\CertStoreBearSSL.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266/Arduino.h \
  C:\Users\Max\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\cores\esp8266/umm_malloc/umm_malloc_cfgport.h \
