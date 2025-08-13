@@ -1,2 +1,1 @@
 git rm -r --cached build
-git commit -m "Stop tracking build folder"

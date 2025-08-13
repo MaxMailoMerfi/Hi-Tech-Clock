@@ -20,6 +20,13 @@ RtcDS1302<ThreeWire> Rtc(myWire);
 const char *ntpServer = "pool.ntp.org";
 const long baseGmtOffset_sec = 2 * 3600; // GMT+2 для України
 
+// ==== Часові інтервали ====
+unsigned long lastPrintTime = 0;          // для виводу в Serial
+const unsigned long printInterval = 1000; // раз на секунду
+
+unsigned long lastWiFiCheck = 0;               // для перевірки WiFi
+const unsigned long wifiCheckInterval = 10000; // кожні 10 секунд
+
 // ==== Обчислення літнього часу ====
 int getDaylightOffset(const struct tm *timeinfo)
 {
@@ -28,17 +35,15 @@ int getDaylightOffset(const struct tm *timeinfo)
   int mday = timeinfo->tm_mday;
 
   if (month < 3 || month > 10)
-    return 0; // Січень-Лютий, Листопад-Грудень — зимовий
+    return 0;
   if (month > 3 && month < 10)
-    return 3600; // Квітень-Вересень — літній
+    return 3600;
 
-  // Березень — перевіряємо останню неділю
   if (month == 3)
   {
     int lastSunday = 31 - ((wday + 31 - mday) % 7);
     return (mday >= lastSunday) ? 3600 : 0;
   }
-  // Жовтень — перевіряємо останню неділю
   if (month == 10)
   {
     int lastSunday = 31 - ((wday + 31 - mday) % 7);
@@ -54,32 +59,34 @@ void connectWiFi()
   Serial.println(ssid);
   WiFi.begin(ssid, password);
 
-  while (WiFi.status() != WL_CONNECTED)
+  unsigned long startAttempt = millis();
+  while (WiFi.status() != WL_CONNECTED && millis() - startAttempt < 10000) // максимум 10 сек
   {
-    delay(500);
     Serial.print(".");
+    delay(200);
   }
-  Serial.println("\n✅ Підключено до WiFi");
+
+  if (WiFi.status() == WL_CONNECTED)
+    Serial.println("\n✅ Підключено до WiFi");
+  else
+    Serial.println("\n❌ Не вдалося підключитися");
 }
 
 // ==== Отримання часу з NTP і запис в DS1302 ====
 void syncTimeFromNTP()
 {
-  // Отримуємо UTC
   configTime(0, 0, ntpServer);
+  struct tm timeinfo;
 
   Serial.println("⌛ Отримання часу з NTP...");
-  struct tm timeinfo;
-  if (!getLocalTime(&timeinfo))
+  if (!getLocalTime(&timeinfo, 5000)) // таймаут 5 сек
   {
     Serial.println("❌ Помилка отримання часу");
     return;
   }
 
-  // Розраховуємо літній час
   int daylightOffset_sec = getDaylightOffset(&timeinfo);
 
-  // Повторне налаштування часу з урахуванням зсувів
   configTime(baseGmtOffset_sec, daylightOffset_sec, ntpServer);
   getLocalTime(&timeinfo);
 
@@ -93,7 +100,6 @@ void syncTimeFromNTP()
                 timeinfo.tm_sec,
                 daylightOffset_sec ? 1 : 0);
 
-  // Запис в DS1302
   RtcDateTime newTime(
       timeinfo.tm_year + 1900,
       timeinfo.tm_mon + 1,
@@ -114,19 +120,33 @@ void setup()
   Rtc.SetIsRunning(true);
 
   connectWiFi();
+  delay(1000); // невелика затримка перед NTP
   syncTimeFromNTP();
 }
 
 void loop()
 {
-  // Читання часу з DS1302
-  RtcDateTime now = Rtc.GetDateTime();
-  char buffer[20];
-  snprintf_P(buffer, sizeof(buffer), PSTR("%02u/%02u/%04u %02u:%02u:%02u"),
-             now.Day(), now.Month(), now.Year(),
-             now.Hour(), now.Minute(), now.Second());
+  unsigned long currentMillis = millis();
 
-  Serial.println(buffer);
+  // Перевірка WiFi раз на 10 секунд
+  if (currentMillis - lastWiFiCheck >= wifiCheckInterval)
+  {
+    lastWiFiCheck = currentMillis;
+    if (WiFi.status() != WL_CONNECTED)
+    {
+      Serial.println("⚠ WiFi розірвано");
+    }
+  }
 
-  delay(1000);
+  // Вивід часу раз на 1 секунду
+  if (currentMillis - lastPrintTime >= printInterval)
+  {
+    lastPrintTime = currentMillis;
+    RtcDateTime now = Rtc.GetDateTime();
+    char buffer[20];
+    snprintf_P(buffer, sizeof(buffer), PSTR("%02u/%02u/%04u %02u:%02u:%02u"),
+               now.Day(), now.Month(), now.Year(),
+               now.Hour(), now.Minute(), now.Second());
+    Serial.println(buffer);
+  }
 }
