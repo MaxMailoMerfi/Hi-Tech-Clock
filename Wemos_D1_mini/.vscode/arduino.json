@@ -1,5 +1,5 @@
 {
-  "port": "COM4",
+  "port": "COM5",
   "configuration": "baud=115200,xtal=80,eesz=4M2M,dbg=Disabled,lvl=None____,ip=lm2f,vt=flash,exception=disabled,stacksmash=disabled,wipe=none,ssl=all,mmu=3232,non32xfer=fast",
   "output": "build",
   "board": "esp8266:esp8266:d1_mini",
@@ -8,7 +8,7 @@
   "optimize_for_debug": false,
   "configurationRequired": true,
   "monitorPortSettings": {
-    "port": "COM4",
+    "port": "COM5",
     "baudRate": 115200,
     "lineEnding": "\r\n",
     "dataBits": 8,

@@ -7,6 +7,7 @@
         "C:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\variants\\d1_mini/**",
         "C:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\libraries\\ESP8266WiFi\\src/**",
         "C:\\Users\\Max\\Documents\\Arduino\\libraries\\Rtc_by_Makuna\\src/**",
+        "C:\\Users\\Max\\Documents\\Arduino\\libraries\\FastLED\\src/**",
         "C:\\Users\\Max\\Documents\\Arduino\\libraries/**",
         "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini/**"
       ],
@@ -60,6 +61,7 @@
         "-IC:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\variants\\d1_mini",
         "-IC:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\libraries\\ESP8266WiFi\\src",
         "-IC:\\Users\\Max\\Documents\\Arduino\\libraries\\Rtc_by_Makuna\\src",
+        "-IC:\\Users\\Max\\Documents\\Arduino\\libraries\\FastLED\\src",
         "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build\\sketch\\Wemos_D1_mini.ino.cpp",
         "-o",
         "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini\\build\\sketch\\Wemos_D1_mini.ino.cpp.o"
