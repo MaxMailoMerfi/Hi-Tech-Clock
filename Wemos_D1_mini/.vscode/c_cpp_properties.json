@@ -3,17 +3,10 @@
     {
       "name": "Arduino",
       "includePath": [
-        "C:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\cores\\esp8266/**",
-        "C:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\variants\\d1_mini/**",
-        "C:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\libraries\\ESP8266WiFi\\src/**",
-        "C:\\Users\\Max\\Documents\\Arduino\\libraries\\Rtc_by_Makuna\\src/**",
-        "C:\\Users\\Max\\Documents\\Arduino\\libraries\\FastLED\\src/**",
         "C:\\Users\\Max\\Documents\\Arduino\\libraries/**",
         "D:\\Max\\WEMOS\\Hi-Tech-Clock\\Wemos_D1_mini/**"
       ],
-      "forcedInclude": [
-        "C:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\cores\\esp8266\\Arduino.h"
-      ],
+      "forcedInclude": [],
       "compilerPath": "C:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\tools\\xtensa-lx106-elf-gcc\\3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++",
       "compilerArgs": [
         "C:\\Users\\Max\\AppData\\Local\\Arduino15\\packages\\esp8266\\tools\\xtensa-lx106-elf-gcc\\3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++",
