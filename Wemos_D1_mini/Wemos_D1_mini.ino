@@ -27,7 +27,7 @@ unsigned long lastPrintTime = 0;
 const unsigned long printInterval = 1000;
 // Інтервал перевірки WiFi статусу
 unsigned long lastWiFiCheck = 0;
-const unsigned long wifiCheckInterval = 10000;
+const unsigned long wifiCheckInterval = 1000;
 // ==== змінні для мигання ====
 bool colonVisible = true;
 unsigned long lastBlink = 0;
@@ -189,7 +189,7 @@ void setup()
 
   connectWiFi();
   delay(1000);
-  while (WiFi.status() != WL_CONNECTED)
+  while (WiFi.status() == WL_CONNECTED)
   {
     syncTimeFromNTP();
   }
